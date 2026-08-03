@@ -14,7 +14,16 @@ export const layout = {
     lg: "py-20",
     xl: "py-32",
   },
+
+  background: {
+    default: "bg-background",
+    muted: "bg-muted",
+    primary: "bg-primary",
+    secondary: "bg-secondary",
+    transparent: "bg-transparent",
+  },
 } as const;
 
 export type ContainerSize = keyof typeof layout.container;
 export type SectionSpacing = keyof typeof layout.section;
+export type SectionBackground = keyof typeof layout.background;
