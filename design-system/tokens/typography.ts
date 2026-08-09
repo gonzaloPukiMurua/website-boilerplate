@@ -44,5 +44,12 @@ export type TextSize =
   | "bodySm"
   | "caption";
 
+export type HeadingSize =
+  | "display"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4";
+
 export type TextVariant = keyof typeof typography.color;
 export type FontWeight = keyof typeof typography.weight;

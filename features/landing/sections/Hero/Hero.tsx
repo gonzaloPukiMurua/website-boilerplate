@@ -1,6 +1,6 @@
 import { Container } from "@/design-system/components/core/Container";
 import { cn } from "@/lib/utils/cn";
-
+import { Button } from "@/design-system/components/ui/Button";
 import { HeroProps } from "./hero.types";
 
 export function Hero({
@@ -34,12 +34,13 @@ export function Hero({
             {description}
           </p>
 
-          <a
+          <Button
             href={ctaHref}
-            className="w-fit"
+            variant="cta"
+            size="lg"
           >
             {ctaLabel}
-          </a>
+          </Button>
 
           {value && (
             <div>

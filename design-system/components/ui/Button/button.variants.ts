@@ -36,15 +36,15 @@ export const buttonVariants = cva(
 
         link:
           "text-primary underline-offset-4 hover:underline",
+
+        cta:
+          "bg-primary text-primary-foreground hover:bg-primary/90",
       },
 
       size: {
         sm: "h-9 px-3 text-sm",
-
         md: "h-10 px-4",
-
         lg: "h-11 px-8",
-
         icon: "h-10 w-10 p-0",
       },
 
