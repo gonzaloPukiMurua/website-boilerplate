@@ -16,7 +16,7 @@ export function NavItem({
       className={cn(
         "inline-flex border-b-2 pb-1 text-sm font-medium transition-colors",
         active
-          ? "border-primary-300 text-white"
+          ? "border-primary text-white"
           : "border-transparent text-white/80 hover:text-white",
         className
       )}

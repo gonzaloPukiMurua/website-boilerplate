@@ -12,7 +12,7 @@ export function Header({ className }: HeaderProps) {
           <header
             className={cn(
               "sticky top-0 z-50 w-full",
-              "bg-[#111317]/60",
+              "bg-background/60",
               "backdrop-blur-md",
               "shadow-sm",
               className

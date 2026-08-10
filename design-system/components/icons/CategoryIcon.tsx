@@ -10,7 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import type { CategoryIcon as CategoryIconName } from "@/features/landing/data/categories";
+import type { CategoryIcon as CategoryIconName } from "@/config/content/categories";
 
 const categoryIcons: Record<CategoryIconName, LucideIcon> = {
   cables: Cable,
