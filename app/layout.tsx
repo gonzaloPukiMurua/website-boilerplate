@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { seo, site } from "@/config/site";
+import { 
+  seo, 
+  site,
+  branding,
+  contact,
+ } from "@/config/site";
+import { LocalBusinessJsonLd } from "@/design-system/components/seo/LocalBusinessJsonLd.tsx";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/features/layout/Header";
@@ -47,6 +53,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <LocalBusinessJsonLd
+          site={site}
+          contact={contact}
+          branding={branding}
+        />
         <Header />
         {children}
       </body>
