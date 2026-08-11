@@ -1,5 +1,5 @@
 import { Container } from "@/design-system/components/core/Container";
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 import { Button } from "@/design-system/components/ui/Button";
 import { HeroProps } from "./hero.types";
 

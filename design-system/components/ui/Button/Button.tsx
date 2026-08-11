@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 
 import { buttonVariants } from "./button.variants";
 import type { ButtonProps } from "./button.types";

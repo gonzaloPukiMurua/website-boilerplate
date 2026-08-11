@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from "react";
 
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 
 export function CardContent({
   className,

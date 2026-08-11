@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 
 import { NavItemProps } from "./nav-item.types";
 

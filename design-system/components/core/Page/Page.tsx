@@ -1,6 +1,6 @@
 import type { ElementType } from "react";
 
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 
 import type { PageProps } from "./page.types";
 

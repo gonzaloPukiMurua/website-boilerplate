@@ -1,7 +1,7 @@
 import type { ElementType } from "react";
 
 import { typography } from "@/design-system/tokens";
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 
 import type { TextProps } from "./text.types";
 

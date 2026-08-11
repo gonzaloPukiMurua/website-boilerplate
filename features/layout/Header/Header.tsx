@@ -1,5 +1,5 @@
 import { Container } from "@/design-system/components/core/Container";
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 import { HeaderProps } from "./header.types";
 import { branding, navigation } from "@/config/site";
 import { Logo } from "@/design-system/components/navigation/Logo";

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 
 import { cardVariants } from "./card.variants";
 import type { CardProps } from "./card.types";

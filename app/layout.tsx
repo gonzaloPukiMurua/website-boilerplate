@@ -5,7 +5,7 @@ import {
   branding,
   contact,
  } from "@/config/site";
-import { LocalBusinessJsonLd } from "@/design-system/components/seo/LocalBusinessJsonLd.tsx";
+import { LocalBusinessJsonLd } from "@/design-system/components/seo/LocalBusinessJsonLd";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/features/layout/Header";

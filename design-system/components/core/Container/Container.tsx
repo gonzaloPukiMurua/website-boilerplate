@@ -1,7 +1,7 @@
 import type { ElementType } from "react";
 
 import { layout } from "@/design-system/tokens/layout";
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 
 import type { ContainerProps } from "./container.types";
 

@@ -1,18 +1,18 @@
 import type { ElementType } from "react";
 
 import { grid, spacing } from "@/design-system/tokens";
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 
 import type { GridCols, GridProps } from "./grid.types";
 
 function getResponsiveColumns(cols: GridCols) {
   return [
-    cols.base && grid.columns[cols.base],
-    cols.sm && `sm:${grid.columns[cols.sm]}`,
-    cols.md && `md:${grid.columns[cols.md]}`,
-    cols.lg && `lg:${grid.columns[cols.lg]}`,
-    cols.xl && `xl:${grid.columns[cols.xl]}`,
-    cols["2xl"] && `2xl:${grid.columns[cols["2xl"]]}`,
+    cols.base && grid.responsiveColumns.base[cols.base],
+    cols.sm && grid.responsiveColumns.sm[cols.sm],
+    cols.md && grid.responsiveColumns.md[cols.md],
+    cols.lg && grid.responsiveColumns.lg[cols.lg],
+    cols.xl && grid.responsiveColumns.xl[cols.xl],
+    cols["2xl"] && grid.responsiveColumns["2xl"][cols["2xl"]],
   ];
 }
 

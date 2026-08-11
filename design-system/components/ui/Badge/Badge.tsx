@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/design-system/utils/cn";
 
 import { badgeVariants } from "./badge.variants";
 import type { BadgeProps } from "./badge.types";
