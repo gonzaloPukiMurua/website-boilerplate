@@ -1,6 +1,7 @@
 // design-system/index.ts
 export * from "./tokens";
 export { Button } from "./components/ui/Button";
+export { Marquee} from "./components/ui/Marquee";
 export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./components/ui/Cards";
 export { Badge } from "./components/ui/Badge";
 export { Icon } from "./components/ui/Icon";
