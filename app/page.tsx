@@ -3,6 +3,8 @@ import { hero } from "@/config/content/hero";
 import { Categories } from "@/features/landing/sections/Categories";
 import { WhyUs } from "@/features/landing/sections/WhyUs";
 import { Brands } from "@/features/landing/sections/Brands";
+import { Services } from "@/features/landing/sections/Services";
+import { Testimonials } from "@/features/landing/sections/Testimonials";
 export default function HomePage() {
   return (
     <main>
@@ -12,6 +14,8 @@ export default function HomePage() {
       <Categories/>
       <WhyUs/>
       <Brands/>
+      <Services/>
+      <Testimonials/>
     </main>
   );
 }
