@@ -3,4 +3,7 @@ export * from "./Button";
 export * from "./Cards";
 export * from "./Icon";
 export * from "./Marquee";
-
+export * from "./Input";
+export * from "./Textarea";
+export * from "./Label";
+export * from "./Select";
