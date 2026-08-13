@@ -1,5 +1,8 @@
-import { cn } from "@/design-system/utils/cn";
+"use client";
 
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { cn } from "@/design-system/utils/cn";
 import { NavItem } from "../NavItem";
 import { NavigationProps } from "./navigation.types";
 
@@ -7,6 +10,7 @@ export function Navigation({
   items,
   className,
 }: NavigationProps) {
+  const [open, setOpen] = useState(false);
   return (
     <nav
       aria-label="Primary"
@@ -14,7 +18,7 @@ export function Navigation({
     >
       <ul
         className={cn(
-          "flex items-center gap-8"
+          "hidden items-center gap-8 md:flex"
         )}
       >
         {items.map((item) => (

@@ -5,4 +5,5 @@ export interface NavItemProps {
   children: ReactNode;
   active?: boolean;
   className?: string;
+  onClick?: () => void;
 }

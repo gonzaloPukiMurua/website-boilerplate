@@ -20,7 +20,7 @@ export function Navbar({
         {logo}
       </div>
 
-      <div className="flex flex-1 justify-center">
+      <div className="flex flex-1 justify-center justify-end md:justify-center">
         {navigation}
       </div>
 

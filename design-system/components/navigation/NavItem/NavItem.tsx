@@ -9,10 +9,12 @@ export function NavItem({
   children,
   active = false,
   className,
+  onClick
 }: NavItemProps) {
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={cn(
         "inline-flex border-b-2 pb-1 text-sm font-medium transition-colors",
         active
