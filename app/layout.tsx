@@ -6,13 +6,18 @@ import {
   contact,
  } from "@/config/site";
 import { LocalBusinessJsonLd } from "@/design-system/components/seo/LocalBusinessJsonLd";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Hanken_Grotesk, Epilogue, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/features/layout/Header";
 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken-grotesk",
+  subsets: ["latin"],
+});
+
+const epilogue = Epilogue({
+  variable: "--font-epilogue",
   subsets: ["latin"],
 });
 
@@ -50,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${hankenGrotesk.variable} ${epilogue.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <LocalBusinessJsonLd

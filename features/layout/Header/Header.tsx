@@ -22,7 +22,7 @@ export function Header({ className }: HeaderProps) {
               <Navbar
                 logo={
                   <Logo href={branding.homeHref}>
-                    <span className="text-lg font-semibold text-white">
+                    <span className="text-lg font-semibold text-foreground">
                       {branding.name}
                     </span>
                   </Logo>

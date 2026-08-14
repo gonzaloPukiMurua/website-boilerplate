@@ -1,34 +1,42 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { cn } from "@/design-system/utils/cn";
 import { NavItem } from "../NavItem";
 import { NavigationProps } from "./navigation.types";
+import { NavigationToggle } from "../NavigationToggle";
+import { NavigationMobileMenu } from "../NavigationMobileMenu";
 
 export function Navigation({
   items,
   className,
 }: NavigationProps) {
   const [open, setOpen] = useState(false);
+
   return (
     <nav
       aria-label="Primary"
       className={className}
     >
-      <ul
-        className={cn(
-          "hidden items-center gap-8 md:flex"
-        )}
-      >
+      <ul className="hidden items-center gap-8 md:flex">
         {items.map((item) => (
-            <li key={item.href}>
-                <NavItem href={item.href}>
-                {item.label}
-                </NavItem>
-            </li>
+          <li key={item.href}>
+            <NavItem href={item.href}>
+              {item.label}
+            </NavItem>
+          </li>
         ))}
       </ul>
+
+      <NavigationToggle
+        open={open}
+        onToggle={() => setOpen((prev) => !prev)}
+      />
+
+      <NavigationMobileMenu
+        items={items}
+        open={open}
+        onItemClick={() => setOpen(false)}
+      />
     </nav>
   );
 }

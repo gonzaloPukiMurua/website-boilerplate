@@ -18,8 +18,8 @@ export function NavItem({
       className={cn(
         "inline-flex border-b-2 pb-1 text-sm font-medium transition-colors",
         active
-          ? "border-primary text-white"
-          : "border-transparent text-white/80 hover:text-white",
+          ? "border-primary text-primary"
+          : "border-transparent text-foreground/80 hover:border-primary/40 hover:text-primary",
         className
       )}
     >
