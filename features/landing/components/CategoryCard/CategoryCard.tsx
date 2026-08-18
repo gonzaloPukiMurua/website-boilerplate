@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/design-system";
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter, Text } from "@/design-system";
 import { Icon } from "@/design-system";
 import { categoryIconMap } from "@/features/landing/lib/category-icon-map";
 import type { CategoryCardProps } from "./category-card.types";
@@ -14,9 +14,16 @@ export function CategoryCard({ category }: CategoryCardProps) {
         <CardDescription>{category.description}</CardDescription>
       </CardHeader>
       <CardFooter>
-        <a href={category.href} className="inline-flex items-center gap-1 text-sm font-medium text-destructive">
+        <Text
+          as="a"
+          href={category.href}
+          size="bodySm"
+          weight="medium"
+          variant="destructive"
+          className="inline-flex items-center gap-1"
+        >
           Ver Más <span aria-hidden>›</span>
-        </a>
+        </Text>
       </CardFooter>
     </Card>
   );

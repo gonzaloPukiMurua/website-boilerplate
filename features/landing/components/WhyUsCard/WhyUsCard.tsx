@@ -9,7 +9,7 @@ export function WhyUsCard({ item }: { item: WhyUsItem }) {
         <Icon icon={whyUsIconMap[item.icon]} size={20} />
       </span>
       <Heading level="h3" size="h4" className="mb-2">{item.title}</Heading>
-      <Text size="bodySm" variant="muted">{item.description}</Text>
+      <Text size="bodySm" variant="default">{item.description}</Text>
     </div>
   );
 }

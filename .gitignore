@@ -12,6 +12,13 @@
 
 # testing
 /coverage
+/playwright-report/
+/test-results/
+/blob-report/
+
+# impeccable (reinstall via `npx impeccable install`; reports are regenerable diagnostics)
+/.claude/
+/.impeccable/
 
 # next.js
 /.next/

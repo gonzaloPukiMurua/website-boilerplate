@@ -9,6 +9,7 @@ import { LocalBusinessJsonLd } from "@/design-system/components/seo/LocalBusines
 import { Hanken_Grotesk, Epilogue, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/features/layout/Header";
+import { Footer } from "@/features/layout/Footer";
 
 
 const hankenGrotesk = Hanken_Grotesk({
@@ -65,6 +66,7 @@ export default function RootLayout({
         />
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -11,14 +11,14 @@ export function TestimonialCard({ item }: { item: Testimonial }) {
           <Star key={i} size={16} className="fill-destructive text-destructive" />
         ))}
       </div>
-      <Text size="bodySm" className="mb-6 italic text-white/90">
+      <Text size="bodySm" className="mb-6 italic text-white">
         "{item.quote}"
       </Text>
       <div className="flex items-center gap-3">
         <Image src={item.avatarSrc} alt={item.author} width={40} height={40} className="rounded-full object-cover" />
         <div>
           <Text size="bodySm" weight="semibold" className="text-white">{item.author}</Text>
-          <Text size="caption" className="text-white/60">{item.role}</Text>
+          <Text size="caption" className="text-white">{item.role}</Text>
         </div>
       </div>
     </div>

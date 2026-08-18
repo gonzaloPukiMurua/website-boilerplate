@@ -34,7 +34,7 @@ export const typography = {
     inverse: "text-background",
     success: "text-green-600",
     warning: "text-yellow-600",
-    destructive: "text-red-600",
+    destructive: "text-red-700",
   },
 } as const;
 

@@ -15,7 +15,7 @@ export function Hero({
   return (
     <section
       className={cn(
-        "flex min-h-[560px] items-start justify-center bg-primary text-primary-foreground",
+        "flex min-h-[560px] items-center justify-center bg-primary text-primary-foreground",
         "pt-28 pb-16 sm:min-h-[650px] sm:pt-36 sm:pb-24 lg:min-h-[792px] lg:pt-48 lg:pb-32",
         className
       )}

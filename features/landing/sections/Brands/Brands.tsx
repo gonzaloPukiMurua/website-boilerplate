@@ -6,7 +6,7 @@ export function Brands() {
   return (
     <Section spacing="md" className="border-y border-border">
       <Container>
-        <Text size="caption" weight="semibold" variant="muted" className="mb-8 text-center uppercase tracking-wide">
+        <Text size="caption" weight="semibold" variant="muted" className="mb-8 text-center tracking-wide">
           {brands.title}
         </Text>
         <Marquee>
