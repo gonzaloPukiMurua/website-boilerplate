@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
+import { toast } from "sonner";
 
 import { Input, Label, Select, Textarea, Button, Text } from "@/design-system";
 import { contact } from "@/config/content/contact";
@@ -19,10 +20,13 @@ export function ContactForm() {
   useEffect(() => {
     if (state.status === "success") {
       formRef.current?.reset();
+      toast.success(state.message ?? contact.form.successMessage);
+    } else if (state.status === "error" && state.message && !state.fieldErrors) {
+      toast.error(state.message);
     }
-  }, [state.status]);
+  }, [state]);
 
-  const { fields, projectTypes, submitLabel, successMessage } = contact.form;
+  const { fields, projectTypes, submitLabel } = contact.form;
 
   return (
     <form ref={formRef} action={formAction} className="space-y-5" noValidate>
@@ -88,18 +92,6 @@ export function ContactForm() {
           </Text>
         )}
       </div>
-
-      {state.status === "success" && (
-        <Text size="bodySm" variant="success">
-          {state.message ?? successMessage}
-        </Text>
-      )}
-
-      {state.status === "error" && state.message && !state.fieldErrors && (
-        <Text size="bodySm" variant="destructive">
-          {state.message}
-        </Text>
-      )}
 
       <Button type="submit" fullWidth loading={isPending}>
         {submitLabel}

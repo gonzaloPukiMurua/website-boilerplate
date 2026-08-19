@@ -6,6 +6,7 @@ import {
   contact,
  } from "@/config/site";
 import { LocalBusinessJsonLd } from "@/design-system/components/seo/LocalBusinessJsonLd";
+import { Toaster } from "@/design-system";
 import { Hanken_Grotesk, Epilogue, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/features/layout/Header";
@@ -67,6 +68,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Toaster />
       </body>
     </html>
   );

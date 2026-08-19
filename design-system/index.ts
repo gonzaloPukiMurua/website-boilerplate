@@ -9,6 +9,7 @@ export { Input } from "./components/ui/Input";
 export { Label } from "./components/ui/Label";
 export { Select } from "./components/ui/Select";
 export { Textarea } from "./components/ui/Textarea";
+export { Toaster } from "./components/ui/Toaster";
 export { Logo } from "./components/navigation/Logo";
 export { Navbar } from "./components/navigation/Navbar";
 export { Navigation } from "./components/navigation/Navigation";
