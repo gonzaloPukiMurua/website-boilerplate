@@ -1,4 +1,3 @@
-//export * from "./animation";
 export * from "./colors";
 export * from "./layout";
 export * from "./radius";
@@ -7,3 +6,4 @@ export * from "./spacing";
 export * from "./grid";
 export * from "./flex";
 export * from "./typography";
+export * from "./motion";

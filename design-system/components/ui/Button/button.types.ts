@@ -13,12 +13,20 @@ type ButtonBaseProps = VariantProps<typeof buttonVariants> & {
   loading?: boolean;
 };
 
+type MotionConflictingHandlers =
+  | "onDrag"
+  | "onDragStart"
+  | "onDragEnd"
+  | "onAnimationStart"
+  | "onAnimationEnd"
+  | "onAnimationIteration";
+
 export type ButtonProps =
   | (ButtonBaseProps &
-      ButtonHTMLAttributes<HTMLButtonElement> & {
+      Omit<ButtonHTMLAttributes<HTMLButtonElement>, MotionConflictingHandlers> & {
         href?: never;
       })
   | (ButtonBaseProps &
-      AnchorHTMLAttributes<HTMLAnchorElement> & {
+      Omit<AnchorHTMLAttributes<HTMLAnchorElement>, MotionConflictingHandlers> & {
         href: string;
       });

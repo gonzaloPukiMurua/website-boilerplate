@@ -20,7 +20,6 @@ export const cardVariants = cva(
 
         interactive: [
           "shadow-sm",
-          "hover:-translate-y-1",
           "hover:shadow-lg",
           "cursor-pointer",
         ].join(" "),
