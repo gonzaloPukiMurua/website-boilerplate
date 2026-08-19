@@ -1,11 +1,13 @@
-# Handoff — las 5 fases del plan original están COMPLETAS
+# Handoff — 5 fases originales completas, ahora en sprint de contenido real
 
-Generado 2026-08-18, actualizado 2026-08-19 al cerrar Fase 5 (última del
-plan original de 5 fases, todas confirmadas por el usuario) y pausar la
-sesión. Si al volver Claude Code no tiene memoria de esta conversación,
-pegale este archivo (o decile "leé SESSION_HANDOFF.md") para retomar sin
-perder contexto. No hay una "fase siguiente" predefinida — cualquier
-trabajo nuevo es una iniciativa aparte, a definir con el usuario.
+Generado 2026-08-18, actualizado 2026-08-19. Las 5 fases del plan original
+(Playwright/Impeccable/DESIGN.md/motion/sonner/vaul) están COMPLETAS y
+confirmadas. Después de esas fases arrancó un **sprint de contenido real**
+(no parte del plan de 5 fases) para reemplazar copy/datos placeholder por
+los del negocio real, Beta Electricidad. Si al volver Claude Code no tiene
+memoria de esta conversación, pegale este archivo para retomar sin perder
+contexto — especialmente la sección "Sprint de contenido" más abajo, que
+tiene pendientes concretos.
 
 ## Estado del repo
 
@@ -239,9 +241,102 @@ de `npm audit` siguen siendo las mismas 4 preexistentes de
 - Confirmada por el usuario 2026-08-19. **Fase cerrada — las 5 fases del
   plan original están completas.**
 
-## Si se retoma este archivo más adelante
+## Sprint de contenido real (Beta Electricidad) — EN CURSO (2026-08-19)
 
-No hay una fase pendiente. Si el usuario pide seguir trabajando:
+No es parte del plan de 5 fases — es la siguiente iniciativa, arrancada
+porque el usuario confirmó que el sitio es para un negocio real (Beta
+Electricidad, venta de materiales eléctricos/instrumental/iluminación,
+más de 30 años, 9 de Julio 433, La Falda, Córdoba X5172, Argentina) y
+quiere reemplazar todo el copy/datos placeholder. A futuro el usuario
+quiere migrar el copy a un CMS para que lo edite alguien especializado o
+los dueños del negocio — evaluado pero NO decidido ni empezado (ver
+conversación: se sugirió Sanity como headless hosteado dado que quien
+edita no necesariamente es técnico, vs. Tina/Decap si prefieren editar
+los mismos archivos vía Git). No tocar `config/content/*` estructuralmente
+sin conversar esa migración primero, ya está en una forma razonablemente
+CMS-friendly (objetos tipados planos, un archivo por sección).
+
+**Ya cargado con datos reales** (commit pendiente — ver abajo):
+- `config/site/branding.ts`, `site.ts`, `seo.ts` — nombre/descripción/
+  keywords reales.
+- `config/site/contact.ts` — dirección real completa. Se agregó
+  `postalCode` a `ContactConfig` (no existía) y se conectó al JSON-LD en
+  `design-system/components/seo/LocalBusinessJsonLd/LocalBusinessJsonLd.tsx`.
+  Teléfono/WhatsApp/email reales cargados: `+5493548575510` /
+  `https://wa.me/5493548575510` / `betaelectricidad2020@gmail.com`.
+- `config/content/hero.ts` — eyebrow y descripción ajustados al negocio
+  real; `ctaHref` del WhatsApp reparado (antes era un placeholder roto
+  `549XXXXXXXXXX`, ahora el número real).
+- `config/content/service.ts` — **reescrito**: la versión anterior tenía
+  afirmaciones inventadas (ingenieros en planta, presupuestos en 24hs,
+  flota propia de logística) que el usuario nunca confirmó. Ahora solo
+  dice lo confirmado: venta al por menor y al por mayor.
+- `config/content/why-us.ts` — "34 años" (inventado) bajado a "más de 30
+  años" (lo confirmado); cifra inventada de "10.000 artículos en depósito"
+  reemplazada por texto genérico de stock.
+- `config/content/brands.ts` — 18 marcas/proveedores reales cargados
+  (GENROD, Sistelectric, Schneider Electric, Steck, Baw Electric, Tacoma,
+  Exultt, Teclastar, Taad, Interelec, Conextube, Tableplast, Roker, MH
+  Conductores, Upercab, Bandejas Elece, Ferrolx, San Justo Iluminación).
+  **`logoSrc` de cada una apunta a `/images/brands/{slug}.png`, que
+  todavía no existen** — pendiente conseguir los logos reales.
+- `features/landing/sections/Contact/Contact.tsx` — el teléfono ahora
+  también es clickeable (`tel:`), antes solo el email tenía `href`.
+- `app/page.tsx` — **`<Testimonials/>` sacado del render** (import y JSX)
+  porque `config/content/testimonials.ts` tiene testimonios 100% inventados
+  (nombres, citas y roles ficticios) — no se pueden publicar como reales
+  en el sitio de un negocio real. El componente y el archivo de contenido
+  quedan intactos, listos para volver a sumar el `<Testimonials/>` en
+  `app/page.tsx` apenas haya reseñas reales. El usuario eligió esta vía:
+  copiar 2-4 reseñas reales de la ficha de Google Business Profile del
+  negocio (texto + nombre + estrellas) a mano — no vía Google Places API
+  (de más peso: requiere API key, billing en Google Cloud, limita a 5
+  reseñas sin control de cuáles). El usuario va a pasar esas reseñas en un
+  `.txt` o `.json` en otra sesión.
+- `tests/landing-baseline.spec.ts` — el array `SECTIONS` perdió
+  `"testimonials"` (ya no está en el DOM, y el selector `nth-of-type`
+  dependía del orden). **Todos los baselines de Playwright se
+  regeneraron** (`npx playwright test --update-snapshots`) porque al sacar
+  la sección, `contact` pasó a otra posición en el DOM — se borraron
+  también los 3 PNG de `testimonials-*` en
+  `tests/landing-baseline.spec.ts-snapshots/`.
+
+**Verificación:** `npx tsc --noEmit` limpio. Playwright completo: 48/48
+passed contra los baselines regenerados, 0 violaciones de a11y. Las marcas
+sin logo real todavía tiran `⨯ The requested resource isn't a valid image`
+en el log del dev server (esperado, mismo patrón preexistente que las
+demás imágenes rotas del sitio — no rompe tests).
+
+**Pendiente, necesita datos del usuario (no inventar nada):**
+1. **Testimonios reales** — el usuario los va a buscar en Google y
+   pasarlos en `.txt`/`.json`. Al recibirlos: cargar en
+   `config/content/testimonials.ts` y volver a sumar `<Testimonials/>` en
+   `app/page.tsx` (import + JSX), correr type-check + Playwright
+   (regenerar baselines de nuevo, el orden de secciones vuelve a cambiar).
+2. **Logos de las 18 marcas** — archivos reales para
+   `/public/images/brands/{slug}.png` (slugs ya definidos en
+   `brands.ts`).
+3. **Dominio/hosting** — el usuario no tiene dominio propio todavía,
+   piensa desplegar en Vercel por ahora. `config/site/site.ts` → `url`
+   sigue en placeholder `https://example.com` (afecta `metadataBase` y las
+   URLs absolutas del JSON-LD). Actualizar cuando tengan la URL de Vercel
+   o un dominio definitivo.
+4. **Logo de marca** (`branding.logo`, hoy apunta a `/images/logo.svg`,
+   que no existe en el repo) — el usuario va a buscar un jpg/png. Se le
+   recomendó: si el logo original es vectorial/simple (texto + formas
+   básicas), convertir a SVG vale la pena (escala perfecto, pesa poco). Si
+   es fotográfico o tiene detalle/gradientes complejos, un auto-trace a
+   SVG suele verse mal (bordes irregulares) — mejor un PNG de alta
+   resolución con fondo transparente en ese caso.
+5. **Fotos reales** del negocio/local/productos — mencionado como próximo
+   paso por el usuario, todavía no arrancado. Las imágenes rotas actuales
+   (`why-us-electrician.jpg`, `testimonials/*.jpg`, etc.) son todas
+   placeholder.
+
+**Commit:** todavía NO se hizo commit de este sprint — hay que confirmar
+con el usuario antes (mismo criterio que las fases anteriores).
+
+## Si se retoma este archivo más adelante
 
 1. Confirmar que el working tree sigue limpio (`git status`) y que no
    quedaron procesos de Node corriendo de la sesión anterior
@@ -249,7 +344,8 @@ No hay una fase pendiente. Si el usuario pide seguir trabajando:
 2. Si esto se lee en una sesión nueva de Claude, decirle que lea este
    archivo y el `CLAUDE.md`/`AGENTS.md`/`CONTEXTO_LANDING_BOILERPLATE.md`
    del repo antes de tocar nada.
-3. Preguntar qué sigue — no asumir una fase 6 no planeada. Si es trabajo
-   nuevo, aplicar el mismo criterio de todo el plan: un cambio por vez,
-   mostrar diff, type-check + Playwright, esperar confirmación antes de
-   avanzar o cerrar.
+3. Si el sprint de contenido sigue abierto, revisar la lista de
+   pendientes de esa sección antes de asumir que hay que arrancar algo
+   nuevo. Mismo criterio de siempre: un cambio por vez, mostrar diff,
+   type-check + Playwright, esperar confirmación antes de avanzar o
+   cerrar.

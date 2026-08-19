@@ -4,14 +4,28 @@ export interface Brand {
   logoSrc: string;
 }
 
+// NOTA: logoSrc apunta a archivos que todavía no existen en /public/images/brands —
+// pendiente de conseguir los logos reales de cada marca (ver SESSION_HANDOFF.md).
 export const brands = {
   title: "Trabajamos con las marcas líderes",
   items: [
-    { id: "marca-1", name: "Marca 1", logoSrc: "/images/brands/brand-1.png" },
-    { id: "marca-2", name: "Marca 2", logoSrc: "/images/brands/brand-2.png" },
-    { id: "marca-3", name: "Marca 3", logoSrc: "/images/brands/brand-3.png" },
-    { id: "marca-4", name: "Marca 4", logoSrc: "/images/brands/brand-4.png" },
-    { id: "marca-5", name: "Marca 5", logoSrc: "/images/brands/brand-5.png" },
-    { id: "marca-6", name: "Marca 6", logoSrc: "/images/brands/brand-6.png" },
+    { id: "genrod", name: "GENROD", logoSrc: "/images/brands/genrod.png" },
+    { id: "sistelectric", name: "Sistelectric", logoSrc: "/images/brands/sistelectric.png" },
+    { id: "schneider-electric", name: "Schneider Electric", logoSrc: "/images/brands/schneider-electric.png" },
+    { id: "steck", name: "Steck", logoSrc: "/images/brands/steck.png" },
+    { id: "baw-electric", name: "Baw Electric", logoSrc: "/images/brands/baw-electric.png" },
+    { id: "tacoma", name: "Tacoma", logoSrc: "/images/brands/tacoma.png" },
+    { id: "exultt", name: "Exultt", logoSrc: "/images/brands/exultt.png" },
+    { id: "teclastar", name: "Teclastar", logoSrc: "/images/brands/teclastar.png" },
+    { id: "taad", name: "Taad", logoSrc: "/images/brands/taad.png" },
+    { id: "interelec", name: "Interelec", logoSrc: "/images/brands/interelec.png" },
+    { id: "conextube", name: "Conextube", logoSrc: "/images/brands/conextube.png" },
+    { id: "tableplast", name: "Tableplast", logoSrc: "/images/brands/tableplast.png" },
+    { id: "roker", name: "Roker", logoSrc: "/images/brands/roker.png" },
+    { id: "mh-conductores", name: "MH Conductores", logoSrc: "/images/brands/mh-conductores.png" },
+    { id: "upercab", name: "Upercab", logoSrc: "/images/brands/upercab.png" },
+    { id: "bandejas-elece", name: "Bandejas Elece", logoSrc: "/images/brands/bandejas-elece.png" },
+    { id: "ferrolx", name: "Ferrolx", logoSrc: "/images/brands/ferrolx.png" },
+    { id: "san-justo-iluminacion", name: "San Justo Iluminación", logoSrc: "/images/brands/san-justo-iluminacion.png" },
   ] satisfies Brand[],
 };

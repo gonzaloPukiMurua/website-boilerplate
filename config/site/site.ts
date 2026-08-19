@@ -5,7 +5,8 @@ export interface SiteConfig {
 }
 
 export const site: SiteConfig = {
-  name: "Website Name",
-  description: "Website description.",
+  name: "Beta Electricidad",
+  description:
+    "Venta de materiales eléctricos, instrumental y artículos de iluminación al por menor y al por mayor en La Falda, Córdoba. Más de 30 años de trayectoria.",
   url: "https://example.com",
 };

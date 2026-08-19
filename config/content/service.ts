@@ -6,13 +6,12 @@ export interface ServiceItem {
 
 export const service = {
   eyebrow: "Nuestros Servicios",
-  title: "Apoyo Profesional en Cada Etapa",
+  title: "Venta al Por Menor y al Por Mayor",
   description:
-    "No solo vendemos materiales, proporcionamos el conocimiento necesario para que su inversión sea eficiente y segura.",
+    "Más de 30 años proveyendo materiales eléctricos, instrumental y artículos de iluminación en La Falda y la región.",
   items: [
-    { id: "asesoramiento", title: "Asesoramiento Técnico", description: "Contamos con ingenieros y técnicos capacitados para resolver dudas sobre normativas, especificaciones y alternativas de producto." },
-    { id: "cotizaciones", title: "Cotizaciones Rápidas", description: "Entregamos presupuestos detallados en menos de 24 horas para que sus proyectos no se detengan." },
-    { id: "venta", title: "Venta por Mayor y Menor", description: "Atendemos tanto a instaladores y constructoras como a usuarios finales con la misma dedicación." },
-    { id: "logistica", title: "Logística de Entrega", description: "Flota propia para asegurar que el material llegue a obra en tiempo y forma en toda la región." },
+    { id: "menorista", title: "Venta al Por Menor", description: "Atención a particulares y profesionales que necesitan materiales eléctricos para instalaciones puntuales." },
+    { id: "mayorista", title: "Venta al Por Mayor", description: "Provisión de materiales eléctricos, instrumental e iluminación para instaladores, comercios y obras de mayor escala." },
+    { id: "trayectoria", title: "Atención Personalizada", description: "Más de 30 años de trayectoria en el rubro para ayudarlo a encontrar el material correcto para cada proyecto." },
   ] satisfies ServiceItem[],
 };

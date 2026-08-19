@@ -1,5 +1,5 @@
 export const branding = {
-  name: "Landing Boilerplate",
+  name: "Beta Electricidad",
   logo: "/images/logo.svg",
   homeHref: "/",
 } as const;

@@ -14,7 +14,10 @@ export function Contact() {
 
   const infoValues: Record<string, { value: string; href?: string }> = {
     address: { value: fullAddress },
-    phone: { value: siteContact.phone ?? "" },
+    phone: {
+      value: siteContact.phone ?? "",
+      href: siteContact.phone ? `tel:${siteContact.phone.replace(/\s+/g, "")}` : undefined,
+    },
     email: {
       value: siteContact.email ?? "",
       href: siteContact.email ? `mailto:${siteContact.email}` : undefined,

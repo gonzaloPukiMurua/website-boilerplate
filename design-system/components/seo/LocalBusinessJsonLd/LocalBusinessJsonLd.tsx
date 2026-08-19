@@ -37,6 +37,7 @@ export function LocalBusinessJsonLd({
           streetAddress: contact.address,
           addressLocality: contact.city,
           addressRegion: contact.state,
+          ...(contact.postalCode && { postalCode: contact.postalCode }),
           addressCountry: contact.country,
         },
       }),

@@ -16,8 +16,8 @@ export const whyUs = {
     alt: "Técnico de Beta Electricidad trabajando en un tablero eléctrico",
   },
   items: [
-    { id: "experiencia", title: "Experiencia", description: "34 años liderando el mercado regional con conocimiento técnico profundo.", icon: "experiencia" },
-    { id: "stock", title: "Stock Real", description: "Disponibilidad inmediata de más de 10.000 artículos en depósito.", icon: "stock" },
+    { id: "experiencia", title: "Experiencia", description: "Más de 30 años de trayectoria en el mercado regional.", icon: "experiencia" },
+    { id: "stock", title: "Stock Real", description: "Amplio stock disponible en materiales eléctricos, instrumental e iluminación.", icon: "stock" },
     { id: "precio", title: "Precio Directo", description: "Condiciones competitivas tanto para compras minoristas como de volumen.", icon: "precio" },
     { id: "servicio", title: "Servicio", description: "Atención personalizada y logística eficiente para cumplir con sus plazos.", icon: "servicio" },
   ] satisfies WhyUsItem[],

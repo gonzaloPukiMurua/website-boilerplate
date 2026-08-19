@@ -12,7 +12,6 @@ const SECTIONS = [
   "why-us",
   "brands",
   "services",
-  "testimonials",
   "contact",
 ] as const;
 

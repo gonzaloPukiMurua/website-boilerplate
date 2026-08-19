@@ -5,15 +5,17 @@ export interface ContactConfig {
   address?: string;
   city?: string;
   state?: string;
+  postalCode?: string;
   country?: string;
 }
 
 export const contact: ContactConfig = {
-  phone: undefined,
-  whatsapp: undefined,
-  email: undefined,
-  address: undefined,
-  city: undefined,
-  state: undefined,
-  country: undefined,
+  phone: "+5493548575510",
+  whatsapp: "https://wa.me/5493548575510",
+  email: "betaelectricidad2020@gmail.com",
+  address: "9 de Julio 433",
+  city: "La Falda",
+  state: "Córdoba",
+  postalCode: "X5172",
+  country: "Argentina",
 };
