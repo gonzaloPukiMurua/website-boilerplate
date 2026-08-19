@@ -35,7 +35,7 @@ export function Navigation({
       <NavigationMobileMenu
         items={items}
         open={open}
-        onItemClick={() => setOpen(false)}
+        onOpenChange={setOpen}
       />
     </nav>
   );

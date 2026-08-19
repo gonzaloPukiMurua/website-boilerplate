@@ -1,18 +1,21 @@
-# Handoff — retomar en Fase 5 (vaul, evaluar antes de instalar)
+# Handoff — las 5 fases del plan original están COMPLETAS
 
-Generado 2026-08-18, actualizado 2026-08-19 al cerrar Fase 2.5, Fase 3 y
-Fase 4 (confirmadas por el usuario) y pausar la sesión. Si al volver Claude
-Code no tiene memoria de esta conversación, pegale este archivo (o decile
-"leé SESSION_HANDOFF.md") para retomar sin perder contexto.
+Generado 2026-08-18, actualizado 2026-08-19 al cerrar Fase 5 (última del
+plan original de 5 fases, todas confirmadas por el usuario) y pausar la
+sesión. Si al volver Claude Code no tiene memoria de esta conversación,
+pegale este archivo (o decile "leé SESSION_HANDOFF.md") para retomar sin
+perder contexto. No hay una "fase siguiente" predefinida — cualquier
+trabajo nuevo es una iniciativa aparte, a definir con el usuario.
 
 ## Estado del repo
 
 - Rama `main`. Commit de Fase 2.5 + Fase 3: `d172094` ("Document visual
   identity (DESIGN.md) and add motion base to primitives"). Commit de
-  Fase 4 (sonner) hecho al pausar esta sesión (2026-08-19) — ver
-  `git log` para el hash exacto, no pusheado salvo que se pida aparte.
-  Commit previo a Fase 2.5/3: `c867a75` ("Add Playwright baseline +
-  Impeccable design fixes, Footer section").
+  Fase 4 (sonner): `a011b93` ("Add sonner toast feedback to contact form
+  (Fase 4)"). Commit de Fase 5 (vaul) hecho al pausar esta sesión
+  (2026-08-19) — ver `git log` para el hash exacto, no pusheado salvo que
+  se pida aparte. Commit previo a Fase 2.5/3: `c867a75` ("Add Playwright
+  baseline + Impeccable design fixes, Footer section").
 - Working tree limpio al momento de pausar.
 - `.claude/` y `.impeccable/` están en `.gitignore` (no versionados) —
   `.claude/` es el paquete de skills de Impeccable, reinstalable con
@@ -193,14 +196,52 @@ trae sonner.
   disparar un toast.
 - Confirmada por el usuario 2026-08-19. Fase cerrada, se pasa a Fase 5.
 
-## Fase 5 (vaul) — SIGUIENTE PASO (no empezada)
+## Fase 5 (vaul) — COMPLETA (2026-08-19)
 
-Evaluar ANTES de instalar (el plan original lo marca como decisión
-pendiente, no automática): ¿hay algún caso de uso real en este boilerplate
-para un drawer (vaul)? Si no hay un target concreto, no instalar la
-dependencia solo por completar la lista de librerías de Kowalski.
+El usuario confirmó que el sitio es para un negocio real y que había un
+caso práctico concreto (no se instaló vaul solo por completar la lista de
+librerías de Kowalski, siguiendo la regla del plan original). El caso
+identificado, confirmado por el usuario entre las opciones planteadas: el
+**menú mobile**, que ya existía como `NavigationMobileMenu` pero estaba
+hecho a mano (`if (!open) return null`, sin animación, sin swipe, sin
+focus trap, sin scroll lock).
 
-## Cómo retomar
+Instalado `vaul@1.1.2` (trae `@radix-ui/react-dialog` como dependencia
+propia — de ahí sale el focus trap/scroll lock/ESC/portal). Vulnerabilidades
+de `npm audit` siguen siendo las mismas 4 preexistentes de
+`next`/`postcss`/`sharp` (no las trae vaul).
+
+- `design-system/components/navigation/NavigationMobileMenu/NavigationMobileMenu.tsx`:
+  reemplazado el `<ul>` condicional por `Drawer.Root` (vaul) con
+  `direction="top"`, manteniendo la posición visual exacta de antes
+  (`fixed inset-x-0 top-[65px]`, debajo del header sticky). `Drawer.Overlay`
+  reutiliza el token `--foreground` (`bg-foreground/20`) en vez de un color
+  suelto. `Drawer.Title` accesible pero `sr-only` (Radix Dialog lo exige).
+- `navigation-mobile-menu.types.ts`: prop `onItemClick` → `onOpenChange(open:
+  boolean)`, así el drawer también cierra con overlay-click/Escape además
+  de al tocar un link (antes solo cerraba al tocar un link).
+- `Navigation.tsx`: pasa `onOpenChange={setOpen}` en vez de `onItemClick`.
+- `NavigationToggle.tsx`: sin tocar, sigue siendo el trigger externo
+  controlado (`open`/`onToggle` del `useState` en `Navigation.tsx`).
+
+**Verificación:**
+- `npx tsc --noEmit` limpio.
+- Playwright completo: 46/46 passed, 0 violaciones de a11y — mismos 8
+  fallos "visual snapshot" preexistentes (imágenes rotas en `_next/image`),
+  nada nuevo.
+- La extensión Claude in Chrome seguía sin conectar en esta sesión (mismo
+  problema que en Fase 4). Verificación manual con un script Playwright
+  puntual (no versionado, borrado al terminar): el drawer abre con los 4
+  links de nav, **0 violaciones de axe con el drawer abierto** (estado no
+  cubierto por `tests/landing-baseline.spec.ts`, que solo escanea con el
+  menú cerrado), cierra con Escape y al clickear un link. Screenshot
+  confirmó el panel posicionado correctamente debajo del header.
+- Confirmada por el usuario 2026-08-19. **Fase cerrada — las 5 fases del
+  plan original están completas.**
+
+## Si se retoma este archivo más adelante
+
+No hay una fase pendiente. Si el usuario pide seguir trabajando:
 
 1. Confirmar que el working tree sigue limpio (`git status`) y que no
    quedaron procesos de Node corriendo de la sesión anterior
@@ -208,8 +249,7 @@ dependencia solo por completar la lista de librerías de Kowalski.
 2. Si esto se lee en una sesión nueva de Claude, decirle que lea este
    archivo y el `CLAUDE.md`/`AGENTS.md`/`CONTEXTO_LANDING_BOILERPLATE.md`
    del repo antes de tocar nada.
-3. Evaluar Fase 5 (vaul) con el mismo criterio de fases anteriores: no
-   instalar nada sin un caso de uso concreto identificado primero.
-4. Si se decide instalar vaul, mismo patrón: un cambio por vez, mostrar
-   diff, type-check + Playwright, esperar confirmación, y actualizar este
-   archivo al cerrar.
+3. Preguntar qué sigue — no asumir una fase 6 no planeada. Si es trabajo
+   nuevo, aplicar el mismo criterio de todo el plan: un cambio por vez,
+   mostrar diff, type-check + Playwright, esperar confirmación antes de
+   avanzar o cerrar.
