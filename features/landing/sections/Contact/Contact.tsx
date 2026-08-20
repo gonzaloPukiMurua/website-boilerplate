@@ -1,13 +1,13 @@
 import { MessageCircle } from "lucide-react";
 
 import { Section, Container, Grid, Stack, Card, Heading, Icon } from "@/design-system";
-import { contact as contactContent } from "@/config/content/contact";
 import { contact as siteContact } from "@/config/site/contact";
 import { ContactForm } from "@/features/landing/components/ContactForm";
 import { ContactInfoItem } from "@/features/landing/components/ContactInfoItem";
 import { ContactMap } from "@/features/landing/components/ContactMap";
+import { ContactProps } from "./contact.types";
 
-export function Contact() {
+export function Contact({ formTitle, infoTitle, infoItems, whatsappCta }: ContactProps) {
   const fullAddress = [siteContact.address, siteContact.city, siteContact.state, siteContact.country]
     .filter(Boolean)
     .join(", ");
@@ -30,16 +30,16 @@ export function Contact() {
         <Grid cols={{ base: 1, lg: 2 }} gap="xl" className="items-start">
           <Card variant="outlined" className="bg-muted p-8">
             <Heading level="h2" className="mb-6">
-              {contactContent.form.title}
+              {formTitle}
             </Heading>
             <ContactForm />
           </Card>
 
           <Stack gap="lg" className="w-full">
-            <Heading level="h2">{contactContent.info.title}</Heading>
+            <Heading level="h2">{infoTitle}</Heading>
 
             <Stack gap="md" className="w-full">
-              {contactContent.info.items.map((item) => (
+              {infoItems.map((item) => (
                 <ContactInfoItem
                   key={item.id}
                   icon={item.icon}
@@ -62,10 +62,10 @@ export function Contact() {
                 </span>
                 <span>
                   <span className="block text-xs font-semibold tracking-wide text-green-700 uppercase">
-                    {contactContent.whatsappCta.eyebrow}
+                    {whatsappCta.eyebrow}
                   </span>
                   <span className="block text-lg font-bold text-foreground">
-                    {contactContent.whatsappCta.title}
+                    {whatsappCta.title}
                   </span>
                 </span>
               </a>
@@ -73,7 +73,7 @@ export function Contact() {
 
             <ContactMap
               query={fullAddress}
-              label={`Ubicación — ${contactContent.info.items[0]?.label ?? "Casa Central"}`}
+              label={`Ubicación — ${infoItems[0]?.label ?? "Casa Central"}`}
             />
           </Stack>
         </Grid>

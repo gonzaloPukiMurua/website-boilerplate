@@ -1,21 +1,21 @@
 import { Section, Container, Grid, Stack, Heading, Text } from "@/design-system";
-import { service } from "@/config/content/service";
 import { ServiceItem } from "@/features/landing/components/ServiceItem";
+import { ServicesProps } from "./services.types";
 
-export function Services() {
+export function Services({ eyebrow, title, description, items }: ServicesProps) {
   return (
     <Section spacing="lg">
       <Container>
         <Grid cols={{ base: 1, lg: 2 }} gap="xl">
           <Stack gap="sm">
             <Text size="caption" weight="semibold" variant="destructive" className="uppercase tracking-wide">
-              {service.eyebrow}
+              {eyebrow}
             </Text>
-            <Heading level="h2">{service.title}</Heading>
-            <Text variant="muted">{service.description}</Text>
+            <Heading level="h2">{title}</Heading>
+            <Text variant="muted">{description}</Text>
           </Stack>
           <Grid cols={{ base: 1, sm: 2 }} gap="lg">
-            {service.items.map((item) => (
+            {items.map((item) => (
               <ServiceItem key={item.id} item={item} />
             ))}
           </Grid>

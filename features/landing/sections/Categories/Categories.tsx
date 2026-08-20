@@ -1,8 +1,8 @@
 import { Section, Container, Stack, Grid, Heading, Text } from "@/design-system";
-import { categories } from "@/config/content/categories";
 import { CategoryCard } from "@/features/landing/components/CategoryCard";
+import { CategoriesProps } from "./categories.types";
 
-export function Categories() {
+export function Categories({ categories }: CategoriesProps) {
   return (
     <Section spacing="lg">
       <Container>

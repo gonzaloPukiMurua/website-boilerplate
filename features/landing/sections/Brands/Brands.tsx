@@ -1,16 +1,16 @@
 import Image from "next/image";
 import { Section, Container, Text, Marquee } from "@/design-system";
-import { brands } from "@/config/content/brands";
+import { BrandsProps } from "./brands.types";
 
-export function Brands() {
+export function Brands({ title, items }: BrandsProps) {
   return (
     <Section spacing="md" className="border-y border-border">
       <Container>
         <Text size="caption" weight="semibold" variant="muted" className="mb-8 text-center tracking-wide">
-          {brands.title}
+          {title}
         </Text>
         <Marquee>
-          {brands.items.map((brand) => (
+          {items.map((brand) => (
             <Image
               key={brand.id}
               src={brand.logoSrc}

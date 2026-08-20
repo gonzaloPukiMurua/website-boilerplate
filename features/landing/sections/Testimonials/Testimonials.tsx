@@ -1,8 +1,8 @@
 import { Section, Container, Grid, Heading } from "@/design-system";
-import { testimonials } from "@/config/content/testimonials";
 import { TestimonialCard } from "@/features/landing/components/TestimonialCard";
+import { TestimonialsProps } from "./testimonials.types";
 
-export function Testimonials() {
+export function Testimonials({ title, items }: TestimonialsProps) {
   return (
     <Section
       spacing="lg"
@@ -10,10 +10,10 @@ export function Testimonials() {
     >
       <Container>
         <Heading level="h2" className="mb-12 text-center text-white">
-          {testimonials.title}
+          {title}
         </Heading>
         <Grid cols={{ base: 1, sm: 3 }} gap="lg">
-          {testimonials.items.map((item) => (
+          {items.map((item) => (
             <TestimonialCard key={item.id} item={item} />
           ))}
         </Grid>
