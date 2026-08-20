@@ -1,30 +1,15 @@
 @import "tailwindcss";
 
+/*
+ * Color tokens (--background, --primary, --secondary, etc.) and typography
+ * fallback stacks are NOT declared here. They're generated from
+ * config/theme/colors.ts and config/theme/typography.ts and injected as an
+ * inline <style id="theme-tokens"> tag in app/layout.tsx's <head>, so
+ * replacing the palette/typefaces for a new project means editing only
+ * config/theme/*, not this file.
+ */
+
 :root {
-  --background: 0 0% 95%;
-  --foreground: 232 10% 30%;
-
-  --card: 0 0% 100%;
-  --card-foreground: 232 10% 30%;
-
-  --primary: 222 100% 21%;
-  --primary-foreground: 0 0% 100%;
-
-  --secondary: 1 61% 43%;
-  --secondary-foreground: 0 0% 100%;
-
-  --muted: 0 0% 90%;
-  --muted-foreground: 232 8% 45%;
-
-  --accent: 0 0% 90%;
-  --accent-foreground: 232 10% 30%;
-
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 100%;
-
-  --border: 0 0% 87%;
-  --ring: 222 100% 21%;
-
   --radius: 0.75rem;
 }
 
@@ -54,10 +39,10 @@
   --color-ring: hsl(var(--ring));
 
   --radius-lg: var(--radius);
-  --font-sans: var(--font-hanken-grotesk);
-  --font-heading: var(--font-epilogue);
-  --font-mono: var(--font-geist-mono);
-   --animate-marquee: marquee 30s linear infinite;
+  --font-sans: var(--font-body-raw);
+  --font-heading: var(--font-heading-raw);
+  --font-mono: var(--font-mono-raw);
+  --animate-marquee: marquee 30s linear infinite;
 }
 
 @keyframes marquee {
@@ -65,33 +50,7 @@
   to { transform: translateX(-50%); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
-
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
-
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 217 33% 17%;
-    --accent-foreground: 210 40% 98%;
-
-    --border: 217 33% 20%;
-  }
-}
-
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), var(--font-sans), Arial, Helvetica, sans-serif;
 }

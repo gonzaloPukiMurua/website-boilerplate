@@ -38,7 +38,7 @@ export const buttonVariants = cva(
           "text-primary underline-offset-4 hover:underline",
 
         cta:
-          "bg-primary text-primary-foreground hover:bg-primary/90",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/90",
       },
 
       size: {
